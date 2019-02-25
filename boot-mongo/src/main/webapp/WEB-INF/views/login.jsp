@@ -88,7 +88,7 @@ span.psw {
 <body>
 
 <div class="container">
-    <h2 class="form-heading"><span style="color: #FF8800; font-size: 22px; text-align: right;" >Powered By</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.5.RELEASE</span></small></sup></h2>
+    <h2 class="form-heading"><span style="color: #FF8800; font-size: 22px; text-align: right;" >Powered By</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR100-1.0.2.RELEASE</span></small></sup></h2>
     <form method="POST" action="${contextPath}/login" class="form-signin">
      <sec:csrfInput /> 
      <div class="imgcontainer">
