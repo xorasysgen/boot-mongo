@@ -20,6 +20,21 @@ import boot.backend.mongo.service.LoginUserDetailsService;
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	
+	private static final String[] permitted_url = {
+			"/v2/api-docs",
+			"/configuration/ui",
+			"/swagger-resources/**",
+			"/configuration/**",
+			"/swagger-ui.html",
+			"/webjars/**",
+			"/api/**",
+			"/static/**",
+			"/css/**",
+			"/js/**",
+			"/images/**"
+    };
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -40,16 +55,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
     
      
-	@Override
+    @Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/api/**", "/static/**", "/css/**", "/js/**", "/images/**");
+		web.ignoring().antMatchers(permitted_url);
 	}
+	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		/*.antMatchers("/").permitAll()*/
 		//.antMatchers("/getEmployees").hasAnyRole("USER", "ADMIN")
+		.antMatchers(permitted_url).permitAll()
 		.antMatchers("/").hasAnyRole("USER", "ADMIN")
 		.anyRequest().authenticated().and().formLogin().successHandler(successHandler)
 		.loginPage("/login").permitAll().and().logout().deleteCookies("remember-me").permitAll()

@@ -11,10 +11,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import boot.backend.mongo.pojo.ServerStatus;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @SpringBootApplication
 @RestController
+@EnableSwagger2
 public class BootMongoApplication {
 
 	
